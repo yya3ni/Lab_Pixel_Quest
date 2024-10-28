@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 224806160}
   m_Layer: 0
   m_Name: Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -581,6 +581,37 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &231962301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 231962302}
+  m_Layer: 0
+  m_Name: RespawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &231962302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231962301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &244440649
 GameObject:
   m_ObjectHideFlags: 0
@@ -596,7 +627,7 @@ GameObject:
   - component: {fileID: 244440653}
   - component: {fileID: 244440652}
   - component: {fileID: 244440651}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Float Plat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1229,6 +1260,37 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 514233651}
   m_Damping: 0.5
   m_MaxWindowSize: -1
+--- !u!1 &749142667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 749142668}
+  m_Layer: 0
+  m_Name: Feet
+  m_TagString: Untagged
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &749142668
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749142667}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1755844763}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331474581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,7 +1389,7 @@ GameObject:
   - component: {fileID: 1335435010}
   - component: {fileID: 1335435014}
   - component: {fileID: 1335435013}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2129,6 +2191,7 @@ GameObject:
   - component: {fileID: 1755844761}
   - component: {fileID: 1755844760}
   - component: {fileID: 1755844764}
+  - component: {fileID: 1755844765}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2185,7 +2248,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1755844759}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 85c7350bcd54e244890fdd3ce7867476, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2235,6 +2298,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 718882201}
+  - {fileID: 749142668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1755844764
@@ -2250,6 +2314,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   JumpForce: 10
+  feetCollsion: {fileID: 749142668}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 128
+--- !u!114 &1755844765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755844759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6a686179266753429333bf71684f5eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPoint: {fileID: 231962302}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2260,3 +2341,4 @@ SceneRoots:
   - {fileID: 1755844763}
   - {fileID: 514233652}
   - {fileID: 735431425}
+  - {fileID: 231962302}
