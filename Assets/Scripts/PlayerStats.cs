@@ -6,15 +6,22 @@ public class PlayerStats : MonoBehaviour
 {
     public Transform respawnPoint;
 
-    private string deathTag = "Death";
+    private const string deathTag = "Death";
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
+        switch (collision.gameObject.tag)
+        {
 
-    // Start is called before the first frame update
-    void Start()
+            case deathTag:
+                {
+                    transform.position = respawnPoint.position;
+                    break;
+                }
+        }
+    }
+        // Start is called before the first frame update
+        void Start()
     {
         
     }
